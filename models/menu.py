@@ -29,7 +29,7 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Inicio'), False, URL('default', 'index'), [])
 ]
 
 DEVELOPMENT_MENU = True
@@ -48,7 +48,7 @@ def _():
     # ------------------------------------------------------------------------------------------------------------------
     # useful links to internal and external resources
     # ------------------------------------------------------------------------------------------------------------------
-    response.menu += [
+    """response.menu += [
         (T('My Sites'), False, URL('admin', 'default', 'site')),
         (T('This App'), False, '#', [
             (T('Design'), False, URL('admin', 'default', 'design/%s' % app)),
@@ -141,11 +141,26 @@ def _():
             (T('Live Chat'), False,
              'http://webchat.freenode.net/?channels=web2py'),
         ]),
-    ]
+    ]"""
 
 
-if DEVELOPMENT_MENU:
-    _()
+if "auth" in locals(): auth.wikimenu()
+response.menu+=[(T('Visitantes'),False,URL(request.application,'registro','registro_visitante'),
+                 [(T('Registrar visitantes'),False,URL(request.application,'registro','registro_visitante'),[]),
+                 (T('Tomar foto'),False,URL(request.application,'fotos','tomar_foto'),[]),
+                 (T('Listado de visitantes'),False,URL(request.application,'visitantes','listado_visitante'),[])],)]
 
-if "auth" in locals():
-    auth.wikimenu()
+response.menu+=[(T('Cargos'),False,URL(request.application,'Proveedores','listado_proveedores'),
+                 [(T('Registrar cargos'),False,URL(request.application,'Registro','registrar_cargos'),[]),
+                 (T('Listado de cargos'),False,URL(request.application,'Listado','listado_cargos'),[]),
+                 ],)]
+
+response.menu+=[(T('Proveedores'),False,URL(request.application,'Proveedores','listado_proveedores'),
+                 [(T('Registrar proveedores'),False,URL(request.application,'Registro','listado_clientes'),[]),
+                 (T('Listado de proveedores'),False,URL(request.application,'Listado','listado_proveedor'),[]),
+                 ],)]
+
+response.menu+=[(T('Consultas'),False,URL(request.application,'consultas','listado_visitantes'),
+                 [(T('Visitantes por fecha'),False,URL(request.application,'consultas','listado_fecha'),[]),
+                 (T('Visitantes por dependencia'),False,URL(request.application,'consultas','listado_dependencia'),[]),
+                 (T('Visitantes por foto'),False,URL(request.application,'consultas','listado_foto'),[])],)]
