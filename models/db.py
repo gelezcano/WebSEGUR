@@ -130,3 +130,103 @@ auth.settings.reset_password_requires_verification = True
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+
+
+##SE DEFINE TABLA VISITANTES##
+
+db.define_table('visitantes',
+	db.Field('apellido','string'),
+    db.Field('nombre','string'),
+	db.Field ('dni','integer',unique=True),
+    db.Field('nacionalidad','string'),
+	db.Field('domicilio','string'),
+    db.Field('GpoFechaHoraEntrada','datetime'),
+    db.Field('GpoFechaHoraSalida','datetime'),
+    db.Field('destino','string'),
+	db.Field('motivodevisita','string'),
+                )
+
+##VALIDACIONES TABLA VISITANTES
+db.visitantes.apellido.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.visitantes.apellido.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.visitantes.nombre.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.visitantes.nombre.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.visitantes.dni.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio') ,IS_INT_IN_RANGE(2500000,100000000, error_message= 'Ingrese un DNI entre 2.500.000 y 100.000.000')
+db.visitantes.motivodevisita.requires=IS_IN_SET(['reunion', 'inspeccion', 'recorrida', 'proveedor'], zero=T('Selecciona motivo'))
+db.visitantes.destino.requires=IS_IN_SET(['jefe','2dojefe', 'enc' , 'finanzas', 'cabuzo', 'caagua', 'finanzas'], zero=T('Selecciona destino'))
+
+
+
+##SE DEFINE TABLA VEHICULOS##
+
+db.define_table('vehiculos',
+	db.Field('modelo','string'),
+    db.Field('anio','integer'),
+    db.Field ('patente',db.visitantes,'string',unique=True),
+	db.Field ('color','string'),
+    db.Field('observaciones','text'),
+	)
+
+##VALIDACIONES TABLA VEHICULOS##
+db.vehiculos.modelo.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.vehiculos.anio.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 15 caracteres')
+db.vehiculos.patente.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres'),IS_ALPHANUMERIC()
+db.vehiculos.color.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+
+
+##SE DEFINE TABLA CARGOS##
+
+db.define_table('cargos',
+	db.Field('ni_cargo','id'),
+	db.Field('nombre','string'),
+    db.Field('descripcion','text'),
+	db.Field('cantidad','integer'),
+    db.Field('responsable','string'),            
+  )          
+
+##VALIDACIONES TABLA CARGOS##
+db.cargos.nombre.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.cargos.descripcion.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 15 caracteres')
+db.cargos.cantidad.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.cargos.responsable.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+    
+
+
+
+##SE DEFINE TABLA PROVEEDORES##
+
+db.define_table('proveedores',
+                 db.Field('nombre_empresa','string'),
+                 db.Field('localidad','string'),
+                 db.Field('direccion','string'),
+                 db.Field('numero_calle','integer'),
+                 db.Field('telefono','integer'),
+                 db.Field('email','string'))
+
+
+##VALIDACIONES TABLA PROVEEDORES##
+db.proveedores.nombre_empresa.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.proveedores.localidad.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
+db.proveedores.direccion.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.proveedores.numero_calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(6, error_message='Solo hasta 6 caracteres')
+db.proveedores.telefono.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+db.proveedores.email.requires=IS_EMAIL(error_message='¡El mail no es válido!'), IS_LENGTH(30, error_message='Solo hasta 30 caracteres')
+
+
+##SE DEFINE TABLA JGUARDIA##
+
+db.define_table('jguardia',
+                db.Field('codigo_jguardia','integer'),
+                db.Field('dni','integer',unique=True),
+                db.Field('apellido','string'),
+                db.Field('nombre','string'),
+                db.Field('usuario','string'),
+                db.Field('password','password'))
+
+##VALIDACIONES TABLA JGUARDIA##
+db.jguardia.codigo_jguardia.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
+db.jguardia.dni.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio') ,IS_INT_IN_RANGE(2500000,100000000, error_message= 'Ingrese un DNI entre 2.500.000 y 100.000.000')
+db.jguardia.apellido.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(10, error_message='Solo hasta 10 caracteres')
+db.jguardia.nombre.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(10, error_message='Solo hasta 10 caracteres')
+db.jguardia.usuario.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(10, error_message='Solo hasta 10 caracteres')
+db.jguardia.password.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
