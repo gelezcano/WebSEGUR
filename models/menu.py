@@ -149,20 +149,20 @@ if "auth" in locals(): auth.wikimenu()
 response.menu+=[(T('Consultas'),False,'#',
                  [(T('Listado de visitantes'),False,URL(request.application,'consultas','listado_visitantes'),[]),
                  (T('Listado de cargos'),False,URL(request.application,'consultas','listado_cargos'),[]),
-                 (T('Listado de proveedores'),False,URL(request.application,'proveedor','listado_proveedor'),[]),
+                 (T('Listado de proveedores'),False,URL(request.application,'consultas','listado_proveedores'),[]),
                  ],)]
 
-response.menu+=[(T('Registro de Visitantes'),False,'#',
+response.menu+=[(T('Registro visitantes'),False,'#',
                  [(T('Ingreso de visitante'),False,URL(request.application,'registro','registro_visitante'),[]),
                  (T(' Datos Vehiculo'),False,URL(request.application,'registro','registro_vehiculo'),[]),
-                 (T('Tomar foto'),False,URL(request.application,'registro','tomar_foto'),[])],)]
+                 (T('Tomar foto'),False,URL(request.application,'registro','registro_foto'),[])],)]
 
 response.menu+=[(T('Proveedores'),False,'#',
-                 [(T('Ingreso de proveedor'),False,URL(request.application,'registro','registro_proveedor'),[]),
-                ],)]               
+                 [(T('Ingreso de proveedor'),False,URL(request.application,'proveedores','registro_proveedor'),[]),
+                 ],)]               
 
 
 response.menu+=[(T('Reportes'),False,URL(request.application,'reportes','listado_visitantes'),
-                 [(T('Visitantes por fecha'),False,URL(request.application,'consultas','listado_fecha'),[]),
-                 (T('Visitantes por dependencia'),False,URL(request.application,'consultas','listado_dependencia'),[]),
-                 (T('Visitantes por foto'),False,URL(request.application,'consultas','listado_foto'),[])],)]
+                 [(T('Visitantes por fecha'),False,URL(request.application,'reportes','listado_fecha'),[]),
+                 (T('Visitantes por dependencia'),False,URL(request.application,'reportes','listado_dependencia'),[]),
+                 (T('Visitantes por foto'),False,URL(request.application,'reportes','listado_foto'),[])],)]
