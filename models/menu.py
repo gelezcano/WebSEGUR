@@ -145,22 +145,24 @@ def _():
 
 
 if "auth" in locals(): auth.wikimenu()
-response.menu+=[(T('Visitantes'),False,URL(request.application,'registro','registro_visitante'),
-                 [(T('Registrar visitantes'),False,URL(request.application,'registro','registro_visitante'),[]),
-                 (T('Tomar foto'),False,URL(request.application,'fotos','tomar_foto'),[]),
-                 (T('Listado de visitantes'),False,URL(request.application,'visitantes','listado_visitante'),[])],)]
 
-response.menu+=[(T('Cargos'),False,URL(request.application,'Proveedores','listado_proveedores'),
-                 [(T('Registrar cargos'),False,URL(request.application,'Registro','registrar_cargos'),[]),
-                 (T('Listado de cargos'),False,URL(request.application,'Listado','listado_cargos'),[]),
+response.menu+=[(T('Consultas'),False,'#',
+                 [(T('Listado de visitantes'),False,URL(request.application,'consultas','listado_visitantes'),[]),
+                 (T('Listado de cargos'),False,URL(request.application,'consultas','listado_cargos'),[]),
+                 (T('Listado de proveedores'),False,URL(request.application,'proveedor','listado_proveedor'),[]),
                  ],)]
 
-response.menu+=[(T('Proveedores'),False,URL(request.application,'Proveedores','listado_proveedores'),
-                 [(T('Registrar proveedores'),False,URL(request.application,'Registro','listado_clientes'),[]),
-                 (T('Listado de proveedores'),False,URL(request.application,'Listado','listado_proveedor'),[]),
-                 ],)]
+response.menu+=[(T('Registro de Visitantes'),False,'#',
+                 [(T('Ingreso de visitante'),False,URL(request.application,'registro','registro_visitante'),[]),
+                 (T(' Datos Vehiculo'),False,URL(request.application,'registro','registro_vehiculo'),[]),
+                 (T('Tomar foto'),False,URL(request.application,'registro','tomar_foto'),[])],)]
 
-response.menu+=[(T('Consultas'),False,URL(request.application,'consultas','listado_visitantes'),
+response.menu+=[(T('Proveedores'),False,'#',
+                 [(T('Ingreso de proveedor'),False,URL(request.application,'registro','registro_proveedor'),[]),
+                ],)]               
+
+
+response.menu+=[(T('Reportes'),False,URL(request.application,'reportes','listado_visitantes'),
                  [(T('Visitantes por fecha'),False,URL(request.application,'consultas','listado_fecha'),[]),
                  (T('Visitantes por dependencia'),False,URL(request.application,'consultas','listado_dependencia'),[]),
                  (T('Visitantes por foto'),False,URL(request.application,'consultas','listado_foto'),[])],)]
