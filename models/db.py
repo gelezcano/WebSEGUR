@@ -230,3 +230,9 @@ db.jguardia.apellido.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS
 db.jguardia.nombre.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(10, error_message='Solo hasta 10 caracteres')
 db.jguardia.usuario.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(10, error_message='Solo hasta 10 caracteres')
 db.jguardia.password.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
+
+
+###FOTOS
+
+db.define_table('fotos',
+                db.Field('listado'))
