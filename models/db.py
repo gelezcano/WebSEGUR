@@ -152,7 +152,7 @@ db.visitantes.apellido.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio')
 db.visitantes.nombre.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
 db.visitantes.nombre.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
 db.visitantes.dni.requires=IS_NOT_EMPTY(error_message= 'Campo obligatorio') ,IS_INT_IN_RANGE(2500000,100000000, error_message= 'Ingrese un DNI entre 2.500.000 y 100.000.000')
-db.visitantes.motivodevisita.requires=IS_IN_SET(['reunion', 'inspeccion', 'recorrida', 'proveedor'], zero=T('Selecciona motivo'))
+db.visitantes.motivodevisita.requires=IS_IN_SET(['reunion', 'inspeccion', 'recorrida'], zero=T('Selecciona motivo'))
 db.visitantes.destino.requires=IS_IN_SET(['jefe','2dojefe', 'enc' , 'finanzas', 'cabuzo', 'caagua', 'finanzas'], zero=T('Selecciona destino'))
 
 
