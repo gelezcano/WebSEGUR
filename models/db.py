@@ -144,6 +144,8 @@ db.define_table('visitantes',
     db.Field('GpoFechaHoraSalida','datetime'),
     db.Field('destino','string'),
 	db.Field('motivodevisita','string'),
+    format='%(apellido,nombre)s'
+    
                 )
 
 ##VALIDACIONES TABLA VISITANTES
@@ -236,3 +238,6 @@ db.jguardia.password.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS
 
 db.define_table('fotos',
                 db.Field('listado'))
+
+db.define_table('logueo',
+                db.Field('usuarios'))

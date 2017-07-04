@@ -162,6 +162,11 @@ response.menu+=[(T('Proveedores'),False,'#',
                  ],)]               
 
 
+response.menu+=[(T('Foto'),False,'#',
+                 [(T('Tomar foto'),False,URL(request.application,'registro','registro_foto'),[]),
+                 ],)] 
+
+
 response.menu+=[(T('Reportes'),False,URL(request.application,'reportes','listado_visitantes'),
                  [(T('Visitantes por fecha'),False,URL(request.application,'reportes','listado_fecha'),[]),
                  (T('Visitantes por dependencia'),False,URL(request.application,'reportes','listado_dependencia'),[]),
