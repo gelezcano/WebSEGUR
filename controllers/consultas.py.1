@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+# try something like
+def index(): return dict(message="hello from consultas.py")
+
+def listado_visitantes():
+    search_text=request.get_vars.keywords
+    grid = SQLFORM.grid(db.visitantes, search_widget=search_form,
+        csv=False,
+        deletable=False,
+        fields=[db.visitantes.apellido,
+                db.visitantes.nombre,
+                db.visitantes.dni,
+                db.visitantes.nacionalidad,
+                db.visitantes.domicilio,
+                db.visitantes.GpoFechaHoraEntrada,
+                db.visitantes.GpoFechaHoraSalida,
+                db.visitantes.destino,
+                db.visitantes.motivodevisita,
+                ]
+        )
+    return dict(gridito=grid)
+
+
+def listado_cargos():
+    datos_cargos=db().select(db.cargos.ALL)
+    return dict (dp=datos_cargos)
+
+def listado_proveedores():
+    datos_proveedores=db().select(db.proveedores.ALL)
+    return dict (da=datos_articulo)
