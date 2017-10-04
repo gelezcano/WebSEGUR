@@ -1,0 +1,2 @@
+{{extend 'plantilla2.html'}}
+{{=formulario}}

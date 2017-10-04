@@ -1,0 +1,3 @@
+{{extend 'plantilla2.html'}}
+<H2>PROVEEDORES</H2>align='center'
+{{=gridito}}

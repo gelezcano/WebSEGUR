@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link href="css/stilo.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>WebSEGUR</title>
+    <style type="text/css">
+        * {
+            margin:150px 150px;
+            padding:0px;      
+        }
+
+
+        body {
+            background:url(militar.jpg) #2b2b2a;
+            background-position:center;
+ 
+       
+       
+        }
+
+        form {
+            background:#1F3B08;
+            width:360px;
+            border:1px solid #4e4d4d;
+            -moz-border-radius:3px;
+            -webkit-border-radius:3px;
+            box-shadow:inset 0 0 10px #000
+            margin:100px auto;
+        }
+
+        
+
+        form h1 {
+            text-align:center;
+            color:#fff;
+            font-weight:normal;
+            font-size:40pt;
+            margin:30px 0px;
+        }
+
+        form input {
+            width:280px;
+            height:35px;
+            padding:0px 10px;
+            margin:10px 30px;
+            color:#6d6d6d:
+            text-align:center;
+        }
+
+        form button {
+            width:135px;
+            margin:20px 0px 30px 30px;
+            height:50px;
+            background: #627d4d; /* Old browsers */
+background: -moz-linear-gradient(top,  #627d4d 0%, #1f3b08 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #627d4d 0%,#1f3b08 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #627d4d 0%,#1f3b08 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#627d4d', endColorstr='#1f3b08',GradientType=0 ); /* IE6-9 */
+            
+            border:1px solid #232323;
+            color:#fff;
+            box-shadow:0px 2px 0px #000;
+            -moz-box-shadow:0px 2px 0px #000;
+            -webkit-box-shadow:0px 2px 0px #000;
+            border-radius:3px;
+            -moz-border-radius:3px;
+            -webkit-border-radius:3px;
+
+            }
+
+        form button:hover {
+            background:#3a3a3a;
+            }
+        form button:active {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1f3b08+0,627d4d+100 */
+background: #1f3b08; /* Old browsers */
+background: -moz-linear-gradient(top,  #1f3b08 0%, #627d4d 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #1f3b08 0%,#627d4d 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #1f3b08 0%,#627d4d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f3b08', endColorstr='#627d4d',GradientType=0 ); /* IE6-9 */
+
+
+    </style>
+    
+</head>
+
+<body>
+<div id="principal">
+
+
+    <form>
+        <h1>WebSEGUR</h1>
+        <input type="text" max-lenght="20" placeholder="Ingrese su usuario"/>
+        <input type="password" max-lenght="20" placeholder="Ingrese su contraseña"/>
+        <button type="button">Registrarse</button>
+        <button type="subimit">Iniciar Sesion</button>
+       
+    </form>
+
+
+
+</div>
+</body>
+</html>
