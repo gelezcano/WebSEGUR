@@ -237,4 +237,12 @@ db.jguardia.password.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS
 ###FOTOS
 
 db.define_table('fotos',
-                db.Field('listado'))
+                db.Field('listado'),
+                db.Field('imagen','string'),
+                )
+
+# mostrar la imagen en los formularios:
+db.fotos.imagen.widget = lambda campo, valor: IMG(_src=valor)
+
+db.define_table('logueo',
+                db.Field('usuarios'))
