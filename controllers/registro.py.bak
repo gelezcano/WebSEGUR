@@ -10,7 +10,7 @@ def registro_visitante():
     elif formulario.errors:
 		response.flash = 'Su formulario contiene errores, porfavor modifiquelo'
     else:
-		response.flash = ''
+		response.flash = 'Por favor rellene el formulario'
     return dict(formulario=formulario)
 
 def registro_vehiculo():
@@ -32,3 +32,11 @@ def registro_foto():
     else:
 		response.flash = 'Por favor rellene el formulario'
     return dict(formulario=formulario)
+
+def subir():
+    # buscar request.vars.dni
+    # guardar imagen en la base de datos
+    id_foto = db.fotos.insert(imagen=request.vars.foto)
+    # buscar y obtener el registro de la base de datos:
+    reg = db(db.fotos.id==id_foto).select().first()
+    return {"foto": reg}
