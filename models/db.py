@@ -142,6 +142,7 @@ db.define_table('visitantes',
 	db.Field('domicilio','string'),
     db.Field('GpoFechaHoraEntrada','datetime'),
     db.Field('GpoFechaHoraSalida','datetime'),
+    db.Field('foto','upload',default=None),
     db.Field('destino','string'),
 	db.Field('motivodevisita','string'),
     format='%(apellido,nombre)s'
