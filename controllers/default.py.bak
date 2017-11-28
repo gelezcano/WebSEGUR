@@ -7,7 +7,15 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
+def sin_autorizacion():
+    auth.settings.logout_next =  URL('default','index')
+    return dict()
 
+def index():
+    return dict(message=T('Welcome to web2py!'))
+
+def user():
+    return dict(form=auth())
 
 
 
