@@ -1,12 +1,32 @@
-{{extend 'plantilla.html'}}
-<h1 align = center>
-    MENU PRINCIPAL
-</h1>
-<div class='well' align='center'>
-  <a href="http://127.0.0.1:8000/WebSEGUR/registro/registro_visitante" class="btn btn-large btn-primary">Registrar Visitantes</a>
-  <a href="http://127.0.0.1:8000/WebSEGUR/registro/registro_foto" class="btn btn-large btn-primary">Fotos</a>
-  <a href="http://127.0.0.1:8000/WebSEGUR/registro/registro_vehiculo" class="btn btn-large btn-primary">Registrar Vehiculo</a>
-  <a href="http://127.0.0.1:8000/WebSEGUR/proveedores/registro_proveedor" class="btn btn-large btn-primary"> Registrar Proveedores</a>
-  <a href="http://127.0.0.1:8000/WebSEGUR/consultas/listado_visitantes" class="btn btn-large btn-primary">Listado visitantes</a>
-  <a href="http://127.0.0.1:8000/WebSEGUR/consultas/listado_proveedores" class="btn btn-large btn-primary">Listado proveedores</a>   
-</div>
+<link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
+<link rel="stylesheet" href="{{=URL('static','css/web2py-bootstrap3.css')}}"/>
+<link rel="stylesheet" href="{{=URL('static','css/identificacion.css')}}"/>
+
+<title>Página Principal</title>
+
+
+<body style="background-color:#4B5320;">
+
+<div class="col-md-11">
+    <h1> <p class="text-right" class="text-danger"> BIENVENIDO A WEBSEGUR</p></strong>  </h1></p></div>
+    
+
+    <div class=" col-md-8 col-md-offset-3">
+<br><br><br>
+<div class="row bootstrap snippets">
+
+    
+    <div class="col-md-4">
+    	<div class="panel widget">
+    		<div class=" bg-info"></div>
+    		<div class="widget-body text-center">
+    			<img alt="Profile Picture" class="widget-img img-circle img-border-light width: 50%;display: block;
+  margin-left:auto margin-right:auto" src="{{=URL('static','images/default_avatar_seguridad.png')}}">
+                <br><img src="{{=URL('static','logo.png')}}" style="position:relative; top:-20px; left:0px right:80px width="100" height="160"></br>
+    			<h3 class="mar-no">GUARDIA</h3>
+    			<div class="pad-ver">
+                    <a href="{{=URL(c="guardia",f="inicio")}}" type="button" class="btn btn-warning  btn-lg">INICIAR SISTEMA</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
