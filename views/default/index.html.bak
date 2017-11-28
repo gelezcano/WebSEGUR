@@ -1,7 +1,7 @@
 {{extend 'plantilla.html'}}
-<h2 align = center>
+<h1 align = center>
     MENU PRINCIPAL
-</h2>
+</h1>
 <div class='well' align='center'>
   <a href="http://127.0.0.1:8000/WebSEGUR/registro/registro_visitante" class="btn btn-large btn-primary">Registrar Visitantes</a>
   <a href="http://127.0.0.1:8000/WebSEGUR/registro/registro_foto" class="btn btn-large btn-primary">Fotos</a>

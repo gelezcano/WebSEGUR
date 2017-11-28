@@ -77,4 +77,10 @@ jQuery(document).ready(function(){
         <canvas id="foto" ></canvas>
     </div>  
 </body>
+<form method="post" action="{{=URL(f="subir")}}">
+    <input type="hidden" id="upload" name="foto" value=""/>
+    <input type="input" name="dni"/>
+    <input type="submit" value="Enviar"/>
+</form>
+</body>
 </html>

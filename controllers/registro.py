@@ -34,9 +34,6 @@ def registro_foto():
     return dict(formulario=formulario)
 
 def subir():
-    # buscar request.vars.dni
-    # guardar imagen en la base de datos
-    id_foto = db.fotos.insert(imagen=request.vars.foto)
-    # buscar y obtener el registro de la base de datos:
-    reg = db(db.fotos.id==id_foto).select().first()
+    id_foto = db.fotos.insert(imagen=request.vars.foto)# buscar request.vars.dni   # guardar imagen en la base de datos
+    reg = db(db.fotos.id==id_foto).select().first()  # buscar y obtener el registro de la base de datos:
     return {"foto": reg}

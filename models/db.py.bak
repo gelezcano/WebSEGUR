@@ -142,6 +142,7 @@ db.define_table('visitantes',
 	db.Field('domicilio','string'),
     db.Field('GpoFechaHoraEntrada','datetime'),
     db.Field('GpoFechaHoraSalida','datetime'),
+    db.Field('foto','upload',default=None),
     db.Field('destino','string'),
 	db.Field('motivodevisita','string'),
     format='%(apellido,nombre)s'
@@ -238,11 +239,11 @@ db.jguardia.password.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS
 
 db.define_table('fotos',
                 db.Field('listado'),
-                db.Field('imagen','string'),
+                db.Field('foto','string'),
                 )
 
 # mostrar la imagen en los formularios:
-db.fotos.imagen.widget = lambda campo, valor: IMG(_src=valor)
+db.fotos.imagen.widget = lambda campo,valor:IMG(_src=valor)
 
 db.define_table('logueo',
                 db.Field('usuarios'))

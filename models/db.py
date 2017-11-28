@@ -243,7 +243,7 @@ db.define_table('fotos',
                 )
 
 # mostrar la imagen en los formularios:
-db.fotos.imagen.widget = lambda campo, valor: IMG(_src=valor)
+db.fotos.imagen.widget = lambda campo,valor:IMG(_src=valor)
 
 db.define_table('logueo',
                 db.Field('usuarios'))
